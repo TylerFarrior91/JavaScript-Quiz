@@ -17,4 +17,10 @@
 
 li {
   list-style-type: none;
+  padding: 5px;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: rgb(187, 187, 187);
 }

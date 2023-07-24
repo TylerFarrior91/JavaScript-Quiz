@@ -75,7 +75,28 @@ function start(questionNumber) {
         var li = document.createElement("li")
         li.innerHTML = choice
         choices.append(li)
+        li.addEventListener("click", function(event) {
+            var clicked = event.target.innerHTML;
+            var correct = questions[questionNumber].answer
+            if(clicked == correct) {
+                score = score + 20;
+            } else {
+                timeLeft = timeLeft - 10
+            }
+            questionNumber++
+            if(questionNumber < questions.length) {
+                start(questionNumber)
+            } else {
+                questionNumber = 0
+                endQuiz()
+            }
+        })
     })
+}
+
+function endQuiz() {
+    quiz.style.display = "none"
+    end.style.display = "block"
 }
 
 
