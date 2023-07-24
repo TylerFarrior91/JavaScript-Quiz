@@ -3,6 +3,22 @@ var quiz = document.querySelector(".quiz")
 quiz.style.display = "none"
 var end = document.querySelector(".end")
 end.style.display = "none"
+var startBtn = document.querySelector(".startBtn")
+var question = document.querySelector(".question")
+var choices = document.querySelector(".choices")
+var outcome = document.querySelector(".outcome")
+var intialsInput = document.querySelector(".intialsInput")
+var submitBtn = document.querySelector(".submitBtn")
+
+var questionNumber = 0;
+var score = 0;
+var timeLeft = 60;
+
+startBtn.addEventListener("click", function() {
+    intro.style.display = "none"
+    quiz.style.display = "block"
+})
+
 
 
 
