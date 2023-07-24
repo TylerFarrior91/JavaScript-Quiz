@@ -1,0 +1,11 @@
+* {
+  font-family: 'Handjet', cursive;
+  font-size: 120%;
+}
+
+
+.intro {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}

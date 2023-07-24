@@ -1,3 +1,12 @@
+var intro = document.querySelector(".intro")
+var quiz = document.querySelector(".quiz")
+quiz.style.display = "none"
+var end = document.querySelector(".end")
+end.style.display = "none"
+
+
+
+
 const questions = [
     {
         questionText: "Commonly used data types DO NOT include:",
@@ -38,50 +47,3 @@ const questions = [
         answer: "1. break",
     }
 ];
-
-
-let currentQuestionIndex = 0;
-let score = 0;
-
-const questionText = document.getElementById("question-text");
-const choicesLabels = document.querySelectorAll("[id^=choice]");
-const submitButton = document.getElementById("submit");
-const resultContainer = document.getElementById("result");
-const scoreElement = document.getElementById("score");
-
-function showQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
-    questionText.textContent = currentQuestion.question;
-    currentQuestion.choices.forEach((choice, index) => {
-        choicesLabels[index].textContent = choice;
-    });
-}
-
-function checkAnswer() {
-    const selectedChoice = document.querySelector('input[name="answer"]:checked');
-    if (!selectedChoice) return;
-
-    const selectedAnswerIndex = parseInt(selectedChoice.value, 10);
-    const currentQuestion = questions[currentQuestionIndex];
-    if (selectedAnswerIndex === currentQuestion.correctAnswer) {
-        score++;
-    }
-
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showResult();
-    }
-}
-
-function showResult() {
-    questionText.style.display = "none";
-    submitButton.style.display = "none";
-    resultContainer.style.display = "block";
-    scoreElement.textContent = `Your Score: ${score} out of ${questions.length}`;
-}
-
-submitButton.addEventListener("click", checkAnswer);
-
-showQuestion();
