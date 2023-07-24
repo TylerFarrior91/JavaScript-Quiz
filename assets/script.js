@@ -94,9 +94,22 @@ function start(questionNumber) {
     })
 }
 
+var oldScores = JSON.parse(localStorage.getItem("scores")) || []
+
 function endQuiz() {
     quiz.style.display = "none"
     end.style.display = "block"
+    outcome.innerHTML = "You got a score of: " + score + "!"
+    submitBtn.addEventListener("click", function() {
+        var intialsValue = intialsInput.value
+        var values = {
+            initials: intialsValue,
+            score: score
+        }
+        oldScores.push(values)
+        localStorage.setItem("scores", JSON.stringify(oldScores))
+        document.reload()
+    })
 }
 
 
