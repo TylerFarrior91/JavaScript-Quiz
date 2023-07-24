@@ -9,57 +9,75 @@ var choices = document.querySelector(".choices")
 var outcome = document.querySelector(".outcome")
 var intialsInput = document.querySelector(".intialsInput")
 var submitBtn = document.querySelector(".submitBtn")
+var timer = document.querySelector(".timer")
 
 var questionNumber = 0;
 var score = 0;
 var timeLeft = 60;
 
-startBtn.addEventListener("click", function() {
-    intro.style.display = "none"
-    quiz.style.display = "block"
-})
-
-
-
-
-
 const questions = [
     {
         questionText: "Commonly used data types DO NOT include:",
-        options: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-        answer: "3. alerts",
+        options: ["A. strings", "B. booleans", "C. alerts", "D. numbers"],
+        answer: "C. alerts",
     },
     {
         questionText:
             "String values must be enclosed within _____ when being assigned to variables.",
-        options: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
-        answer: "3. quotes",
+        options: ["A. commas", "B. curly brackets", "C. quotes", "D parentheses"],
+        answer: "C. quotes",
     },
     {
         questionText:
             "A very useful tool used during development and debugging for printing content to the debugger is:",
         options: [
-            "1. JavaScript",
-            "2. terminal/bash",
-            "3. for loops",
-            "4. console.log",
+            "A. JavaScript",
+            "B. terminal/bash",
+            "C. for loops",
+            "D. console.log",
         ],
-        answer: "4. console.log",
+        answer: "D. console.log",
     },
     {
         questionText: "Arrays in JavaScript can be used to store ______.",
         options: [
-            "1. numbers and strings",
-            "2. other arrays",
-            "3. booleans",
-            "4. all of the above",
+            "A. numbers and strings",
+            "B. other arrays",
+            "C. booleans",
+            "D. all of the above",
         ],
-        answer: "4. all of the above.",
+        answer: "D. all of the above.",
     },
     {
         questionText:
             "Which of the following is a statement that can be used to terminate a loop, switch or label statement?",
-        options: ["1. break", "2. stop", "3. halt", "4. exit"],
-        answer: "1. break",
+        options: ["A. break", "B. stop", "C. halt", "D. exit"],
+        answer: "A. break",
     }
 ];
+
+
+startBtn.addEventListener("click", function() {
+    intro.style.display = "none"
+    quiz.style.display = "block"
+    setInterval(function() {
+        timeLeft--
+        timer.innerHTML = timeLeft
+    }, 1000)
+    start(questionNumber)
+})
+
+function start(questionNumber) {
+    question.innerHTML = questions[questionNumber].questionText
+    choices.innerHTML = ""
+    var choicesSet = questions[questionNumber].options
+    choicesSet.forEach(function(choice) {
+        var li = document.createElement("li")
+        li.innerHTML = choice
+        choices.append(li)
+    })
+}
+
+
+
+

@@ -9,3 +9,12 @@
   width: 60%;
   margin: 0 auto;
 }
+
+.quiz {
+  width: 60%;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+}
