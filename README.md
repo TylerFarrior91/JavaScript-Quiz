@@ -6,7 +6,7 @@ In this project i created a Java Script Quiz using CSS and HTML. This quiz has 5
 * Java Script 
 
 ### Links
-GitHUb URL (https://github.com/TylerFarrior91/JavaScript-Quiz)/
+GitHUb URL (https://github.com/TylerFarrior91/JavaScript-Quiz/)
 
 LIVE URL (https://tylerfarrior91.github.io/JavaScript-Quiz/)
 #### ScreenShots
